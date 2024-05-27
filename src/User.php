@@ -24,6 +24,10 @@ class User {
 
 		$this->db = $db;
 	}
+
+	public function getDb() {
+		return $this->db;
+	}
 }
 
 ?>
