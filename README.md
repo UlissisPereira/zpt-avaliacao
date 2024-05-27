@@ -50,10 +50,9 @@ CREATE TABLE `user_department` (
 5) O que pode ser feito para deixar a query abaixo mais rápida?
 
 ```sql
-SELECT dept.id FROM user
-INNER JOIN user_department u_d ON u_d.user = user.id
-INNER JOIN department dept ON u_d.department = dept.id
-WHERE user.username = 'zpt'
+SELECT dept.id FROM department dept
+INNER JOIN user_department ud ON dept.id = ud.department
+WHERE ud.user = (SELECT id FROM user WHERE username ='zpt')
 ```
 
 6) A classe `User` tem o método `setDb()` que recebe uma conexão com o banco de dados. As classes `Company` e `Department` precisam ter esse mesmo método, idêntico. Implemente.
