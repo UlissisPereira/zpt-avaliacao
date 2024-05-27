@@ -4,7 +4,7 @@ namespace User;
 class User {
 	private $db;
 
-	public function g($ids) {
+	public function getByIdList($ids) {
 		return $this->db->q('SELECT username FROM user WHERE id IN (' . implode(',', $ids) . ')');
 	}
 
