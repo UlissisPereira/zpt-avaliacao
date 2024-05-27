@@ -4,11 +4,13 @@ namespace Department;
 require_once './User.php';
 
 class Department {
-	private User\User $user;
+	private User $user;
     private $db;
 
 	public function __construct() {
-		$this->user = new User\User(); // @todo fixme
+        // O erro foi inserido no commit 68d80a9a
+        // Sendo um código procedural o nameespace não é necessário
+		$this->user = new User();
 	}
 
     public function getGreaterDepartament() {
