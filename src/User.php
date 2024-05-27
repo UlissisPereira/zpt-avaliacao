@@ -5,13 +5,7 @@ class User {
 	private $db;
 
 	public function g($ids) {
-		$users = [];
-
-		foreach ($ids as $id) {
-			$users[] = $this->db->q('SELECT username FROM user WHERE id = ' . $id);
-		}
-
-		return $users;
+		return $this->db->q('SELECT username FROM user WHERE id IN (' . implode(',', $ids) . ')');
 	}
 
 	public function setDb($db) {
